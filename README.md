@@ -1,5 +1,13 @@
 # Pokémon Emerald
 
+This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald).
+
+## Changes
+
+* French translation for pokemons, moves, abilities, natures
+
+## Original project README
+
 This is a decompilation of Pokémon Emerald.
 
 It builds the following ROM:
