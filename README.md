@@ -4,7 +4,7 @@ This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald
 
 ## Changes
 
-* French translation for pokemons, moves, abilities, natures
+* French translation for pokemons, moves, abilities and natures
 
 ## Original project README
 
