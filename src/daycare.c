@@ -527,70 +527,114 @@ static void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv)
 static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
 {
     u8 i;
-    u8 selectedIvs[INHERITED_IV_COUNT];
-    u8 availableIVs[NUM_STATS];
-    u8 whichParents[INHERITED_IV_COUNT];
-    u8 iv;
+    u8 parentAIv, parentBIv, maxIv;
 
-    // Initialize a list of IV indices.
+    // Iterate over each IV (HP, ATK, DEF, SPEED, SPATK, SPDEF)
     for (i = 0; i < NUM_STATS; i++)
     {
-        availableIVs[i] = i;
-    }
-
-    // Select the 3 IVs that will be inherited.
-    for (i = 0; i < INHERITED_IV_COUNT; i++)
-    {
-        // Randomly pick an IV from the available list and stop from being chosen again.
-        // BUG: Instead of removing the IV that was just picked, this
-        // removes position 0 (HP) then position 1 (DEF), then position 2. This is why HP and DEF
-        // have a lower chance to be inherited in Emerald and why the IV picked for inheritance can
-        // be repeated. Amusingly, FRLG and RS also got this wrong. They remove selectedIvs[i], which
-        // is not an index! This means that it can sometimes remove the wrong stat.
-        #ifndef BUGFIX
-        selectedIvs[i] = availableIVs[Random() % (NUM_STATS - i)];
-        RemoveIVIndexFromList(availableIVs, i);
-        #else
-        u8 index = Random() % (NUM_STATS - i);
-        selectedIvs[i] = availableIVs[index];
-        RemoveIVIndexFromList(availableIVs, index);
-        #endif
-    }
-
-    // Determine which parent each of the selected IVs should inherit from.
-    for (i = 0; i < INHERITED_IV_COUNT; i++)
-    {
-        whichParents[i] = Random() % DAYCARE_MON_COUNT;
-    }
-
-    // Set each of inherited IVs on the egg mon.
-    for (i = 0; i < INHERITED_IV_COUNT; i++)
-    {
-        switch (selectedIvs[i])
+        switch (i)
         {
             case 0:
-                iv = GetBoxMonData(&daycare->mons[whichParents[i]].mon, MON_DATA_HP_IV);
-                SetMonData(egg, MON_DATA_HP_IV, &iv);
+                // Get the IVs from both parents for the current stat
+                parentAIv = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_HP_IV);
+                parentBIv = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_HP_IV);
+
+                // Determine the maximum IV between both parents for the current stat
+                maxIv = (parentAIv > parentBIv) ? parentAIv : parentBIv;
+
+                // Increase the egg's IV by a random amount between 0 and 5, ensuring it does not exceed 31
+                maxIv += Random() % 6; // Add a random number between 0 and 5 to maxIv
+                if (maxIv > 31) {
+                    maxIv = 31; // Ensure maxIv does not exceed 31
+                }
+
+                // Set the egg's IV for the current stat to the adjusted maximum IV
+                SetMonData(egg, MON_DATA_HP_IV, &maxIv);
                 break;
             case 1:
-                iv = GetBoxMonData(&daycare->mons[whichParents[i]].mon, MON_DATA_ATK_IV);
-                SetMonData(egg, MON_DATA_ATK_IV, &iv);
+                // Get the IVs from both parents for the current stat
+                parentAIv = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_ATK_IV);
+                parentBIv = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_ATK_IV);
+
+                // Determine the maximum IV between both parents for the current stat
+                maxIv = (parentAIv > parentBIv) ? parentAIv : parentBIv;
+
+                // Increase the egg's IV by a random amount between 0 and 5, ensuring it does not exceed 31
+                maxIv += Random() % 6; // Add a random number between 0 and 5 to maxIv
+                if (maxIv > 31) {
+                    maxIv = 31; // Ensure maxIv does not exceed 31
+                }
+
+                // Set the egg's IV for the current stat to the maximum IV
+                SetMonData(egg, MON_DATA_ATK_IV, &maxIv);
                 break;
             case 2:
-                iv = GetBoxMonData(&daycare->mons[whichParents[i]].mon, MON_DATA_DEF_IV);
-                SetMonData(egg, MON_DATA_DEF_IV, &iv);
+                // Get the IVs from both parents for the current stat
+                parentAIv = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_DEF_IV);
+                parentBIv = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_DEF_IV);
+
+                // Determine the maximum IV between both parents for the current stat
+                maxIv = (parentAIv > parentBIv) ? parentAIv : parentBIv;
+
+                // Increase the egg's IV by a random amount between 0 and 5, ensuring it does not exceed 31
+                maxIv += Random() % 6; // Add a random number between 0 and 5 to maxIv
+                if (maxIv > 31) {
+                    maxIv = 31; // Ensure maxIv does not exceed 31
+                }
+
+                // Set the egg's IV for the current stat to the maximum IV
+                SetMonData(egg, MON_DATA_DEF_IV, &maxIv);
                 break;
             case 3:
-                iv = GetBoxMonData(&daycare->mons[whichParents[i]].mon, MON_DATA_SPEED_IV);
-                SetMonData(egg, MON_DATA_SPEED_IV, &iv);
+                // Get the IVs from both parents for the current stat
+                parentAIv = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_SPEED_IV);
+                parentBIv = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_SPEED_IV);
+
+                // Determine the maximum IV between both parents for the current stat
+                maxIv = (parentAIv > parentBIv) ? parentAIv : parentBIv;
+
+                // Increase the egg's IV by a random amount between 0 and 5, ensuring it does not exceed 31
+                maxIv += Random() % 6; // Add a random number between 0 and 5 to maxIv
+                if (maxIv > 31) {
+                    maxIv = 31; // Ensure maxIv does not exceed 31
+                }
+
+                // Set the egg's IV for the current stat to the maximum IV
+                SetMonData(egg, MON_DATA_SPEED_IV, &maxIv);
                 break;
             case 4:
-                iv = GetBoxMonData(&daycare->mons[whichParents[i]].mon, MON_DATA_SPATK_IV);
-                SetMonData(egg, MON_DATA_SPATK_IV, &iv);
+                // Get the IVs from both parents for the current stat
+                parentAIv = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_SPATK_IV);
+                parentBIv = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_SPATK_IV);
+
+                // Determine the maximum IV between both parents for the current stat
+                maxIv = (parentAIv > parentBIv) ? parentAIv : parentBIv;
+
+                // Increase the egg's IV by a random amount between 0 and 5, ensuring it does not exceed 31
+                maxIv += Random() % 6; // Add a random number between 0 and 5 to maxIv
+                if (maxIv > 31) {
+                    maxIv = 31; // Ensure maxIv does not exceed 31
+                }
+
+                // Set the egg's IV for the current stat to the maximum IV
+                SetMonData(egg, MON_DATA_SPATK_IV, &maxIv);
                 break;
             case 5:
-                iv = GetBoxMonData(&daycare->mons[whichParents[i]].mon, MON_DATA_SPDEF_IV);
-                SetMonData(egg, MON_DATA_SPDEF_IV, &iv);
+                // Get the IVs from both parents for the current stat
+                parentAIv = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_SPDEF_IV);
+                parentBIv = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_SPDEF_IV);
+
+                // Determine the maximum IV between both parents for the current stat
+                maxIv = (parentAIv > parentBIv) ? parentAIv : parentBIv;
+
+                // Increase the egg's IV by a random amount between 0 and 5, ensuring it does not exceed 31
+                maxIv += Random() % 6; // Add a random number between 0 and 5 to maxIv
+                if (maxIv > 31) {
+                    maxIv = 31; // Ensure maxIv does not exceed 31
+                }
+
+                // Set the egg's IV for the current stat to the maximum IV
+                SetMonData(egg, MON_DATA_SPDEF_IV, &maxIv);
                 break;
         }
     }
