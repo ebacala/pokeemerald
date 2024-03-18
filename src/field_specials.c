@@ -1395,6 +1395,19 @@ bool8 Special_AreLeadMonEVsMaxedOut(void)
     return FALSE;
 }
 
+u8 Special_GetLeadMonMaxedOutEvs(void)
+{
+    int i;
+    u8 maxedOutEvs = 0;
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        maxedOutEvs += GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_HP_EV + i, 0) == MAX_PER_STAT_EVS;
+    }
+
+    return maxedOutEvs;
+}
+
 u8 TryUpdateRusturfTunnelState(void)
 {
     if (!FlagGet(FLAG_RUSTURF_TUNNEL_OPENED)
