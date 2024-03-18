@@ -7,6 +7,7 @@ This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald
 * French translation for pokemons, moves, abilities and natures
 * Removed save overwrite confirmation for the same save file
 * Streamlined IV inheritance in POKéMON breeding, allowing the egg to inherit the superior IV from either parent with an added bonus from 0 to 5
+* Added a new dialog line to the Battle Frontier breeder for POKéMONS with perfect IVs
 
 ## Original project README
 

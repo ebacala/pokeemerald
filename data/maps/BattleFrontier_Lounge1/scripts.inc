@@ -37,7 +37,8 @@ BattleFrontier_Lounge1_EventScript_ShowMonToBreeder::
 	goto_if_le VAR_0x8005, 90, BattleFrontier_Lounge1_EventScript_AverageTotalIVs       @ Average of 15
 	goto_if_le VAR_0x8005, 120, BattleFrontier_Lounge1_EventScript_AboveAverageTotalIVs @ Average of 20
 	goto_if_le VAR_0x8005, 150, BattleFrontier_Lounge1_EventScript_HighTotalIVs         @ Average of 25
-	goto_if_ge VAR_0x8005, 151, BattleFrontier_Lounge1_EventScript_VeryHighTotalIVs     @ Average of > 25
+	goto_if_le VAR_0x8005, 185, BattleFrontier_Lounge1_EventScript_VeryHighTotalIVs     @ Average of > 25
+	goto_if_ge VAR_0x8005, 186, BattleFrontier_Lounge1_EventScript_PerfectTotalIVs      @ Each IVs = 31
 	end
 
 BattleFrontier_Lounge1_EventScript_ShowEggToBreeder::
@@ -86,6 +87,17 @@ BattleFrontier_Lounge1_EventScript_VeryHighTotalIVs::
 	msgbox BattleFrontier_Lounge1_Text_OutstandingAbility, MSGBOX_DEFAULT
 	goto BattleFrontier_Lounge1_EventScript_HighestIVStat
 	end
+
+BattleFrontier_Lounge1_EventScript_PerfectTotalIVs::
+	msgbox BattleFrontier_Lounge1_Text_PerfectAbility, MSGBOX_DEFAULT
+	goto BattleFrontier_Lounge1_EventScript_EndBreederComments
+	end
+
+BattleFrontier_Lounge1_Text_PerfectAbility::
+	.string "Holy smokes! This POKéMON is\n"
+	.string "Absolutely perfect!\p"
+	.string "I am sure it will do\n"
+	.string "wonders in battle!$" 
 
 BattleFrontier_Lounge1_EventScript_HighestIVHP::
 	msgbox BattleFrontier_Lounge1_Text_BestAspectHP, MSGBOX_DEFAULT
