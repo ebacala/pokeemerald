@@ -2675,7 +2675,7 @@ SlateportCity_EventScript_EffortRibbonWoman::
 # 1341 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_0
 # 1343 "data/maps/SlateportCity/scripts.pory"
-	specialvar VAR_RESULT, Special_GetLeadMonMaxedOutEvs
+	specialvar VAR_RESULT, Special_GetLeadMonHpEv
 # 1344 "data/maps/SlateportCity/scripts.pory"
 	buffernumberstring STR_VAR_2, VAR_RESULT
 # 1345 "data/maps/SlateportCity/scripts.pory"
@@ -2683,19 +2683,67 @@ SlateportCity_EventScript_EffortRibbonWoman::
 	goto_if_ge SlateportCity_EventScript_EffortRibbonWoman_2
 SlateportCity_EventScript_EffortRibbonWoman_1:
 # 1349 "data/maps/SlateportCity/scripts.pory"
-	specialvar VAR_RESULT, LeadMonHasEffortRibbon
+	specialvar VAR_RESULT, Special_GetLeadMonAtkEv
 # 1350 "data/maps/SlateportCity/scripts.pory"
-	compare VAR_RESULT, 0
-	goto_if_ne SlateportCity_EventScript_EffortRibbonWoman_5
-# 1353 "data/maps/SlateportCity/scripts.pory"
-	specialvar VAR_RESULT, Special_AreLeadMonEVsMaxedOut
-# 1354 "data/maps/SlateportCity/scripts.pory"
-	compare VAR_RESULT, 0
-	goto_if_ne SlateportCity_EventScript_EffortRibbonWoman_8
-# 1362 "data/maps/SlateportCity/scripts.pory"
-	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_6
+	buffernumberstring STR_VAR_2, VAR_RESULT
+# 1351 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_ge SlateportCity_EventScript_EffortRibbonWoman_5
 SlateportCity_EventScript_EffortRibbonWoman_4:
-# 1365 "data/maps/SlateportCity/scripts.pory"
+# 1355 "data/maps/SlateportCity/scripts.pory"
+	specialvar VAR_RESULT, Special_GetLeadMonDefEv
+# 1356 "data/maps/SlateportCity/scripts.pory"
+	buffernumberstring STR_VAR_2, VAR_RESULT
+# 1357 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_ge SlateportCity_EventScript_EffortRibbonWoman_8
+SlateportCity_EventScript_EffortRibbonWoman_7:
+# 1361 "data/maps/SlateportCity/scripts.pory"
+	specialvar VAR_RESULT, Special_GetLeadMonSpAtkEv
+# 1362 "data/maps/SlateportCity/scripts.pory"
+	buffernumberstring STR_VAR_2, VAR_RESULT
+# 1363 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_ge SlateportCity_EventScript_EffortRibbonWoman_11
+SlateportCity_EventScript_EffortRibbonWoman_10:
+# 1367 "data/maps/SlateportCity/scripts.pory"
+	specialvar VAR_RESULT, Special_GetLeadMonSpDefEv
+# 1368 "data/maps/SlateportCity/scripts.pory"
+	buffernumberstring STR_VAR_2, VAR_RESULT
+# 1369 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_ge SlateportCity_EventScript_EffortRibbonWoman_14
+SlateportCity_EventScript_EffortRibbonWoman_13:
+# 1373 "data/maps/SlateportCity/scripts.pory"
+	specialvar VAR_RESULT, Special_GetLeadMonSpeedEv
+# 1374 "data/maps/SlateportCity/scripts.pory"
+	buffernumberstring STR_VAR_2, VAR_RESULT
+# 1375 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_ge SlateportCity_EventScript_EffortRibbonWoman_17
+SlateportCity_EventScript_EffortRibbonWoman_16:
+# 1379 "data/maps/SlateportCity/scripts.pory"
+	specialvar VAR_RESULT, Special_GetLeadMonMaxedOutEvs
+# 1380 "data/maps/SlateportCity/scripts.pory"
+	buffernumberstring STR_VAR_2, VAR_RESULT
+# 1381 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_ge SlateportCity_EventScript_EffortRibbonWoman_20
+SlateportCity_EventScript_EffortRibbonWoman_19:
+# 1385 "data/maps/SlateportCity/scripts.pory"
+	specialvar VAR_RESULT, LeadMonHasEffortRibbon
+# 1386 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 0
+	goto_if_ne SlateportCity_EventScript_EffortRibbonWoman_23
+# 1389 "data/maps/SlateportCity/scripts.pory"
+	specialvar VAR_RESULT, Special_AreLeadMonEVsMaxedOut
+# 1390 "data/maps/SlateportCity/scripts.pory"
+	compare VAR_RESULT, 0
+	goto_if_ne SlateportCity_EventScript_EffortRibbonWoman_26
+# 1398 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_12
+SlateportCity_EventScript_EffortRibbonWoman_22:
+# 1401 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
@@ -2705,24 +2753,54 @@ SlateportCity_EventScript_EffortRibbonWoman_2:
 	goto SlateportCity_EventScript_EffortRibbonWoman_1
 
 SlateportCity_EventScript_EffortRibbonWoman_5:
-# 1351 "data/maps/SlateportCity/scripts.pory"
+# 1352 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_2
 	goto SlateportCity_EventScript_EffortRibbonWoman_4
 
 SlateportCity_EventScript_EffortRibbonWoman_8:
-# 1355 "data/maps/SlateportCity/scripts.pory"
-	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_3
-# 1356 "data/maps/SlateportCity/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
-# 1357 "data/maps/SlateportCity/scripts.pory"
-	message SlateportCity_EventScript_EffortRibbonWoman_Text_4
 # 1358 "data/maps/SlateportCity/scripts.pory"
-	waitfanfare
-# 1359 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_3
+	goto SlateportCity_EventScript_EffortRibbonWoman_7
+
+SlateportCity_EventScript_EffortRibbonWoman_11:
+# 1364 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_4
+	goto SlateportCity_EventScript_EffortRibbonWoman_10
+
+SlateportCity_EventScript_EffortRibbonWoman_14:
+# 1370 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_5
-# 1360 "data/maps/SlateportCity/scripts.pory"
+	goto SlateportCity_EventScript_EffortRibbonWoman_13
+
+SlateportCity_EventScript_EffortRibbonWoman_17:
+# 1376 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_6
+	goto SlateportCity_EventScript_EffortRibbonWoman_16
+
+SlateportCity_EventScript_EffortRibbonWoman_20:
+# 1382 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_7
+	goto SlateportCity_EventScript_EffortRibbonWoman_19
+
+SlateportCity_EventScript_EffortRibbonWoman_23:
+# 1387 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_8
+	goto SlateportCity_EventScript_EffortRibbonWoman_22
+
+SlateportCity_EventScript_EffortRibbonWoman_26:
+# 1391 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_9
+# 1392 "data/maps/SlateportCity/scripts.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 1393 "data/maps/SlateportCity/scripts.pory"
+	message SlateportCity_EventScript_EffortRibbonWoman_Text_10
+# 1394 "data/maps/SlateportCity/scripts.pory"
+	waitfanfare
+# 1395 "data/maps/SlateportCity/scripts.pory"
+	msgbox SlateportCity_EventScript_EffortRibbonWoman_Text_11
+# 1396 "data/maps/SlateportCity/scripts.pory"
 	special GiveLeadMonEffortRibbon
-	goto SlateportCity_EventScript_EffortRibbonWoman_4
+	goto SlateportCity_EventScript_EffortRibbonWoman_22
 
 
 SlateportCity_EventScript_EffortRibbonWoman_Text_0:
@@ -2731,30 +2809,62 @@ SlateportCity_EventScript_EffortRibbonWoman_Text_0:
 
 SlateportCity_EventScript_EffortRibbonWoman_Text_1:
 # 1346 "data/maps/SlateportCity/scripts.pory"
+	.string "I see your POKéMON has started to tap\n"
+	.string "into its endurance potential!$"
+
+SlateportCity_EventScript_EffortRibbonWoman_Text_2:
+# 1352 "data/maps/SlateportCity/scripts.pory"
+	.string "Hmm, it seems like your POKéMON has\n"
+	.string "started to unveil its strength\l"
+	.string "potential!$"
+
+SlateportCity_EventScript_EffortRibbonWoman_Text_3:
+# 1358 "data/maps/SlateportCity/scripts.pory"
+	.string "It seems your POKéMON is starting to\n"
+	.string "tap into its defensive capabilities!$"
+
+SlateportCity_EventScript_EffortRibbonWoman_Text_4:
+# 1364 "data/maps/SlateportCity/scripts.pory"
+	.string "It appears your POKéMON is beginning to\n"
+	.string "unlock its mystical strength!$"
+
+SlateportCity_EventScript_EffortRibbonWoman_Text_5:
+# 1370 "data/maps/SlateportCity/scripts.pory"
+	.string "It appears your POKéMON is beginning to\n"
+	.string "harness its mystical defense\l"
+	.string "capabilities!$"
+
+SlateportCity_EventScript_EffortRibbonWoman_Text_6:
+# 1376 "data/maps/SlateportCity/scripts.pory"
+	.string "I see your POKéMON has started to tap\n"
+	.string "into its speed potential!$"
+
+SlateportCity_EventScript_EffortRibbonWoman_Text_7:
+# 1382 "data/maps/SlateportCity/scripts.pory"
 	.string "Impressive! {STR_VAR_2} of your\n"
 	.string "POKéMON's stats have reached their\l"
 	.string "peak potential!$"
 
-SlateportCity_EventScript_EffortRibbonWoman_Text_2:
-# 1351 "data/maps/SlateportCity/scripts.pory"
+SlateportCity_EventScript_EffortRibbonWoman_Text_8:
+# 1387 "data/maps/SlateportCity/scripts.pory"
 	.string "That EFFORT RIBBON looks good on it!$"
 
-SlateportCity_EventScript_EffortRibbonWoman_Text_3:
-# 1355 "data/maps/SlateportCity/scripts.pory"
+SlateportCity_EventScript_EffortRibbonWoman_Text_9:
+# 1391 "data/maps/SlateportCity/scripts.pory"
 	.string "Went for it stupendously! As its reward,\n"
 	.string "please give it this EFFORT RIBBON.$"
 
-SlateportCity_EventScript_EffortRibbonWoman_Text_4:
-# 1357 "data/maps/SlateportCity/scripts.pory"
+SlateportCity_EventScript_EffortRibbonWoman_Text_10:
+# 1393 "data/maps/SlateportCity/scripts.pory"
 	.string "{PLAYER} received the EFFORT RIBBON.$"
 
-SlateportCity_EventScript_EffortRibbonWoman_Text_5:
-# 1359 "data/maps/SlateportCity/scripts.pory"
+SlateportCity_EventScript_EffortRibbonWoman_Text_11:
+# 1395 "data/maps/SlateportCity/scripts.pory"
 	.string "{PLAYER} put the EFFORT RIBBON on\n"
 	.string "{STR_VAR_1}.$"
 
-SlateportCity_EventScript_EffortRibbonWoman_Text_6:
-# 1362 "data/maps/SlateportCity/scripts.pory"
+SlateportCity_EventScript_EffortRibbonWoman_Text_12:
+# 1398 "data/maps/SlateportCity/scripts.pory"
 	.string "You have to go for it a little harder. If\n"
 	.string "you do, I'll give your POKéMON something\l"
 	.string "nice.$"

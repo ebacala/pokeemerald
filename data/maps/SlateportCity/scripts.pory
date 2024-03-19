@@ -1340,6 +1340,42 @@ script SlateportCity_EventScript_EffortRibbonWoman {
 	bufferleadmonspeciesname(STR_VAR_1)
 	msgbox(format("Oh? Your {STR_VAR_1}…"))
 
+	specialvar(VAR_RESULT, Special_GetLeadMonHpEv)
+	buffernumberstring(STR_VAR_2, VAR_RESULT)
+	if (var(VAR_RESULT) >= 1) {
+		msgbox(format("I see your POKéMON has started to tap into its endurance potential!"))
+	}
+
+	specialvar(VAR_RESULT, Special_GetLeadMonAtkEv)
+	buffernumberstring(STR_VAR_2, VAR_RESULT)
+	if (var(VAR_RESULT) >= 1) {
+		msgbox(format("Hmm, it seems like your POKéMON has started to unveil its strength potential!"))
+	}
+
+	specialvar(VAR_RESULT, Special_GetLeadMonDefEv)
+	buffernumberstring(STR_VAR_2, VAR_RESULT)
+	if (var(VAR_RESULT) >= 1) {
+		msgbox(format("It seems your POKéMON is starting to tap into its defensive capabilities!"))
+	}
+
+	specialvar(VAR_RESULT, Special_GetLeadMonSpAtkEv)
+	buffernumberstring(STR_VAR_2, VAR_RESULT)
+	if (var(VAR_RESULT) >= 1) {
+		msgbox(format("It appears your POKéMON is beginning to unlock its mystical strength!"))
+	}
+
+	specialvar(VAR_RESULT, Special_GetLeadMonSpDefEv)
+	buffernumberstring(STR_VAR_2, VAR_RESULT)
+	if (var(VAR_RESULT) >= 1) {
+		msgbox(format("It appears your POKéMON is beginning to harness its mystical defense capabilities!"))
+	}
+
+	specialvar(VAR_RESULT, Special_GetLeadMonSpeedEv)
+	buffernumberstring(STR_VAR_2, VAR_RESULT)
+	if (var(VAR_RESULT) >= 1) {
+		msgbox(format("I see your POKéMON has started to tap into its speed potential!"))
+	}
+
 	specialvar(VAR_RESULT, Special_GetLeadMonMaxedOutEvs)
 	buffernumberstring(STR_VAR_2, VAR_RESULT)
 	if (var(VAR_RESULT) >= 1) {

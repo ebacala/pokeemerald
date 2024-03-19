@@ -1408,6 +1408,36 @@ u8 Special_GetLeadMonMaxedOutEvs(void)
     return maxedOutEvs;
 }
 
+u8 Special_GetLeadMonHpEv(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_HP_EV, 0);;
+}
+
+u8 Special_GetLeadMonAtkEv(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_ATK_EV, 0);;
+}
+
+u8 Special_GetLeadMonDefEv(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_DEF_EV, 0);;
+}
+
+u8 Special_GetLeadMonSpAtkEv(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPATK_EV, 0);;
+}
+
+u8 Special_GetLeadMonSpDefEv(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPDEF_EV, 0);;
+}
+
+u8 Special_GetLeadMonSpeedEv(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPEED_EV, 0);;
+}
+
 u8 TryUpdateRusturfTunnelState(void)
 {
     if (!FlagGet(FLAG_RUSTURF_TUNNEL_OPENED)

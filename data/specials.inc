@@ -306,6 +306,12 @@ gSpecials::
 	def_special GiveLeadMonEffortRibbon
 	def_special Special_AreLeadMonEVsMaxedOut
 	def_special Special_GetLeadMonMaxedOutEvs
+	def_special Special_GetLeadMonHpEv
+	def_special Special_GetLeadMonAtkEv
+	def_special Special_GetLeadMonDefEv
+	def_special Special_GetLeadMonSpAtkEv
+	def_special Special_GetLeadMonSpDefEv
+	def_special Special_GetLeadMonSpeedEv
 	def_special Script_FacePlayer
 	def_special Script_ClearHeldMovement
 	def_special InitRoamer
