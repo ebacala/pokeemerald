@@ -13,6 +13,7 @@ This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald
     * POKéMONS with maxed out EVs (255 out of 255)
 * Increased MACHO BRACE EV multiplier from 2 to 4
 * Battle Frontier shop now sells all the TMs
+* TMs names are now displayed in the shop (instead of "TMxx")
 
 ## Original project README
 
