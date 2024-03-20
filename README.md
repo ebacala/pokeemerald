@@ -18,6 +18,7 @@ This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald
     * All the TMs
     * PP ups
 * TMs names are now displayed in shops (instead of "TMxx")
+* Level 100 POKéMONS that fought are no longer taken into account for EXP. calculations
 
 ## Original project README
 

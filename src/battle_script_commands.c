@@ -3277,7 +3277,7 @@ static void Cmd_getexp(void)
 
             for (viaSentIn = 0, i = 0; i < PARTY_SIZE; i++)
             {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE || GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE || GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0 || GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) == MAX_LEVEL)
                     continue;
                 if (gBitTable[i] & sentIn)
                     viaSentIn++;
@@ -3297,11 +3297,20 @@ static void Cmd_getexp(void)
 
             if (viaExpShare) // at least one mon is getting exp via exp share
             {
-                *exp = SAFE_DIV(calculatedExp / 2, viaSentIn);
+                // If the POKéMONs sent in are all level 100
+                if (!viaSentIn)
+                {
+                    *exp = SAFE_DIV(calculatedExp, viaSentIn);
+                    gExpShareExp = calculatedExp / viaExpShare;
+                }
+                else
+                {
+                    *exp = SAFE_DIV(calculatedExp / 2, viaSentIn);
+                    gExpShareExp = calculatedExp / 2 / viaExpShare;
+                }
                 if (*exp == 0)
                     *exp = 1;
 
-                gExpShareExp = calculatedExp / 2 / viaExpShare;
                 if (gExpShareExp == 0)
                     gExpShareExp = 1;
             }
