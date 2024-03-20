@@ -28,6 +28,7 @@ BattleFrontier_Mart_Pokemart:
 	.2byte ITEM_ZINC
 	.2byte ITEM_CARBOS
 	.2byte ITEM_HP_UP
+	.2byte ITEM_PP_UP
 	.2byte ITEM_TM_FOCUS_PUNCH
 	.2byte ITEM_TM_DRAGON_CLAW
 	.2byte ITEM_TM_WATER_PULSE
