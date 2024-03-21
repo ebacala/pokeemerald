@@ -1,0 +1,38 @@
+script EventScript_ItemPickUp {
+    lock
+
+    # Count the number of items picked up
+    setvar(VAR_0x8005, 0)
+
+    while {
+        specialvar(VAR_0x8004, Special_CheckPickedUpItems)
+        if (var(VAR_0x8004) != 0) {
+            addvar(VAR_0x8005, 1)
+            bufferitemname(STR_VAR_1, VAR_0x8004)
+
+            checkitemspace(VAR_0x8004, 1)
+            if (var(VAR_RESULT)) {
+                msgbox(format("One of your POKéMON picked up {STR_VAR_1}. Do you want to put it in the BAG?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT)) {
+                    giveitem(VAR_0x8004)
+                    special(Special_RemoveFirstPokemonPickedUpItem)
+                } else {
+                    break
+                }
+            } else {
+                msgbox(format("One of your POKéMON picked up {STR_VAR_1}. But there is no space left in the BAG."))
+                break
+            }
+        } else {
+            if (var(VAR_0x8005) == 0) {
+                msgbox(format("No item were picked up."))
+            } else {
+                msgbox(format("No more items were picked up."))
+            }
+            break
+        }
+    }  
+
+    release
+    end
+}

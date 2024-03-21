@@ -56,6 +56,7 @@
 #include "constants/items.h"
 #include "constants/heal_locations.h"
 #include "constants/map_types.h"
+#include "constants/abilities.h"
 #include "constants/mystery_gift.h"
 #include "constants/slot_machine.h"
 #include "constants/songs.h"
@@ -1436,6 +1437,63 @@ u8 Special_GetLeadMonSpDefEv(void)
 u8 Special_GetLeadMonSpeedEv(void)
 {
     return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPEED_EV, 0);;
+}
+
+u8 Special_CheckPickedUpItems(void)
+{
+    s32 i;
+    u16 species, heldItem;
+    u8 ability;
+    
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+        heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+
+        if (GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM))
+            ability = gSpeciesInfo[species].abilities[1];
+        else
+            ability = gSpeciesInfo[species].abilities[0];
+
+        if (ability == ABILITY_PICKUP
+            && species != SPECIES_NONE
+            && species != SPECIES_EGG
+            && heldItem != ITEM_NONE)
+        {
+            return GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+        }
+    }
+
+    return ITEM_NONE;
+}
+
+void Special_RemoveFirstPokemonPickedUpItem(void)
+{
+    s32 i;
+    u16 species, heldItem;
+    u8 ability;
+
+    u16 itemNone = ITEM_NONE;
+    
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+        heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+
+        if (GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM))
+            ability = gSpeciesInfo[species].abilities[1];
+        else
+            ability = gSpeciesInfo[species].abilities[0];
+
+        if (ability == ABILITY_PICKUP
+            && species != SPECIES_NONE
+            && species != SPECIES_EGG
+            && heldItem != ITEM_NONE)
+        {
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &itemNone);
+            return;
+        }
+    }
 }
 
 u8 TryUpdateRusturfTunnelState(void)

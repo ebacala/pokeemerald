@@ -34,6 +34,8 @@
 #include "constants/map_types.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
+#include "event_scripts.h"
+#include "script.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -75,6 +77,7 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->checkStandardWildEncounter = FALSE;
     input->pressedStartButton = FALSE;
     input->pressedSelectButton = FALSE;
+    input->pressedRButton = FALSE;
     input->heldDirection = FALSE;
     input->heldDirection2 = FALSE;
     input->tookStep = FALSE;
@@ -119,6 +122,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->tookStep = TRUE;
         if (forcedMove == FALSE && tileTransitionState == T_TILE_CENTER)
             input->checkStandardWildEncounter = TRUE;
+    }
+
+    if (newKeys & R_BUTTON) 
+    {
+        ScriptContext_SetupScript(EventScript_ItemPickUp);            
     }
 
     if (heldKeys & DPAD_UP)
