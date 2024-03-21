@@ -27,6 +27,7 @@
 #include "menu.h"
 #include "overworld.h"
 #include "party_menu.h"
+#include "pickup_items.h"
 #include "pokeblock.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
@@ -1441,7 +1442,7 @@ u8 Special_GetLeadMonSpeedEv(void)
 
 u8 Special_CheckPickedUpItems(void)
 {
-    s32 i;
+    s32 i, j;
     u16 species, heldItem;
     u8 ability;
     
@@ -1460,7 +1461,17 @@ u8 Special_CheckPickedUpItems(void)
             && species != SPECIES_EGG
             && heldItem != ITEM_NONE)
         {
-            return GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+            for (j = 0; j < PICKUP_ITEMS_SIZE; j++)
+            {
+                if (gPickupItems[j] == heldItem)
+                    return heldItem;
+            }
+            for (j = 0; j < RARE_PICKUP_ITEMS_SIZE; j++)
+            {
+                if (gRarePickupItems[j] == heldItem)
+                    return heldItem;
+            }
+            return ITEM_NONE;
         }
     }
 

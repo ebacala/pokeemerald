@@ -31,6 +31,7 @@
 #include "battle_setup.h"
 #include "overworld.h"
 #include "party_menu.h"
+#include "pickup_items.h"
 #include "battle_arena.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
@@ -779,48 +780,6 @@ static const u16 sWeightToDamageTable[] =
     1000, 80,
     2000, 100,
     0xFFFF, 0xFFFF
-};
-
-static const u16 sPickupItems[] =
-{
-    ITEM_POTION,
-    ITEM_ANTIDOTE,
-    ITEM_SUPER_POTION,
-    ITEM_GREAT_BALL,
-    ITEM_REPEL,
-    ITEM_ESCAPE_ROPE,
-    ITEM_X_ATTACK,
-    ITEM_FULL_HEAL,
-    ITEM_ULTRA_BALL,
-    ITEM_HYPER_POTION,
-    ITEM_RARE_CANDY,
-    ITEM_PROTEIN,
-    ITEM_REVIVE,
-    ITEM_HP_UP,
-    ITEM_FULL_RESTORE,
-    ITEM_MAX_REVIVE,
-    ITEM_PP_UP,
-    ITEM_MAX_ELIXIR,
-};
-
-static const u16 sRarePickupItems[] =
-{
-    ITEM_HYPER_POTION,
-    ITEM_NUGGET,
-    ITEM_KINGS_ROCK,
-    ITEM_FULL_RESTORE,
-    ITEM_ETHER,
-    ITEM_WHITE_HERB,
-    ITEM_TM_REST,
-    ITEM_ELIXIR,
-    ITEM_TM_FOCUS_PUNCH,
-    ITEM_LEFTOVERS,
-    ITEM_TM_EARTHQUAKE,
-};
-
-static const u8 sPickupProbabilities[] =
-{
-    30, 40, 50, 60, 70, 80, 90, 94, 98
 };
 
 static const u8 sTerrainToType[] =
@@ -9644,16 +9603,16 @@ static void Cmd_pickup(void)
                 if (lvlDivBy10 > 9)
                     lvlDivBy10 = 9;
 
-                for (j = 0; j < (int)ARRAY_COUNT(sPickupProbabilities); j++)
+                for (j = 0; j < PICKUP_PROBABILITIES_SIZE; j++)
                 {
-                    if (sPickupProbabilities[j] > rand)
+                    if (gPickupProbabilities[j] > rand)
                     {
-                        SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupItems[lvlDivBy10 + j]);
+                        SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &gPickupItems[lvlDivBy10 + j]);
                         break;
                     }
                     else if (rand == 99 || rand == 98)
                     {
-                        SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sRarePickupItems[lvlDivBy10 + (99 - rand)]);
+                        SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &gRarePickupItems[lvlDivBy10 + (99 - rand)]);
                         break;
                     }
                 }
