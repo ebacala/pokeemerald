@@ -124,7 +124,7 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->checkStandardWildEncounter = TRUE;
     }
 
-    if (newKeys & R_BUTTON) 
+    if ((newKeys & R_BUTTON) && !ArePlayerFieldControlsLocked()) 
     {
         ScriptContext_SetupScript(EventScript_ItemPickUp);            
     }
