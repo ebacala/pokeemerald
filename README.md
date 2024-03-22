@@ -15,6 +15,7 @@ This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald
 * The Moon Stone can now be sold for 2100 POKéDOLLARS
 * Battle Frontier shop now sells:
     * All the evolution stones
+    * Deep Sea Tooth & Deep Sea Scale (10 000 POKéDOLLARS each)
     * All the TMs
     * PP ups
 * TMs names are now displayed in shops (instead of "TMxx")
