@@ -18,6 +18,8 @@ This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald
     * Deep Sea Tooth & Deep Sea Scale (10 000 POKéDOLLARS each)
     * All the TMs
     * PP ups
+    * Ether (2 500 POKéDOLLARS) & Max Ether (5 000 POKéDOLLARS)
+    * Elixir (5 000 POKéDOLLARS) & Max Elixir (10 000 POKéDOLLARS)
 * TMs names are now displayed in shops (instead of "TMxx")
 * Level 100 POKéMONS that fought are no longer taken into account for EXP. calculations
 * Pressing the R button will check if items were picked up using the PICKUP ability
