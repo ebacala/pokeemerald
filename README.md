@@ -4,8 +4,8 @@ This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald
 
 ## Usage
 
-- Run the container with `docker compose up -d`
-- Run the build with `docker exec -it debian /bin/bash -c "cd workspace/pokeemerald && make"`
+Run `./build.sh` to build the game. It will create a Docker image of Debian along with all the necessary dependencies. It will also install agbcc in the created image.
+It will then create a container from that image and mount the pokeemerald folder so that the build can be run inside the container.
 
 ## Changes
 

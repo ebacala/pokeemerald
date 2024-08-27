@@ -1,0 +1,10 @@
+services:
+  pokemaker:
+    container_name: pokemaker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/pokeemerald
+    command: tail -f /dev/null
+
