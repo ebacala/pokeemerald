@@ -2,6 +2,11 @@
 
 This project is a fork of [pret/pokeemerald](https://github.com/pret/pokeemerald).
 
+## Usage
+
+- Run the container with `docker compose up -d`
+- Run the build with `docker exec -it debian /bin/bash -c "cd workspace/pokeemerald && make"`
+
 ## Changes
 
 * French translation for pokemons, moves, abilities and natures
