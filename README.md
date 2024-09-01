@@ -29,6 +29,7 @@ It will then create a container from that image and mount the pokeemerald folder
 * Level 100 POKéMONS that fought are no longer taken into account for EXP. calculations
 * Pressing the R button will check if items were picked up using the PICKUP ability
 * Added self trade (in Littleroot Town)
+* Added a dialog option to skip WALLACE's speech after beating him and directly go the the Hall of Fame room
 
 ## Original project README
 
