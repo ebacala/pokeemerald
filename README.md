@@ -29,7 +29,6 @@ It will then create a container from that image and mount the pokeemerald folder
 * Level 100 POKéMONS that fought are no longer taken into account for EXP. calculations
 * Pressing the R button will check if items were picked up using the PICKUP ability
 * Added self trade (in Littleroot Town)
-* Added a dialog option to skip WALLACE's speech after beating him and directly go the the Hall of Fame room
 * Added a zone on the left side of Littleroot Town where the player can find the 3 Hoenn starters (only accessible after defeating the POKéMON LEAGUE)
 
 ## Original project README

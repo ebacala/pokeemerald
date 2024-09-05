@@ -48,32 +48,11 @@ EverGrandeCity_ChampionsRoom_EventScript_Wallace::
 	goto EverGrandeCity_ChampionsRoom_EventScript_Defeated
 	end
 
-EverGrandeCity_ChampionsRoom_Text_AskSkipDialog:
-	.string "WALLACE: I'm not going to say the same\n"
-	.string "speech as last time if you don't want\l"
-	.string "to. But if you want I can say it again?$"
-
-EverGrandCity_ChampionsRoom_Text_SkippedDiaglog:
-	.string "WALLACE: Alright then, let's go!$"
-
-EverGrandeCity_ChampionsRoom_EventScript_SkipDialog::
-	msgbox EverGrandCity_ChampionsRoom_Text_SkippedDiaglog, MSGBOX_DEFAULT
-	goto EverGrandeCity_ChampionsRoom_EventScriptWarpToHallOfFame
-	end
-
 EverGrandeCity_ChampionsRoom_EventScript_Defeated::
 	playse SE_DOOR
 	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
 	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE
 	special DrawWholeMapView
-	msgbox EverGrandeCity_ChampionsRoom_Text_AskSkipDialog, MSGBOX_YESNO
-	switch VAR_RESULT
-	case NO, EverGrandeCity_ChampionsRoom_EventScript_SkipDialog
-	case YES, EverGrandeCity_ChampionsRoom_EventScript_PostBattleSpeech
-	case MULTI_B_PRESSED, EverGrandeCity_ChampionsRoom_EventScript_SkipDialog
-	end
- 
-EverGrandeCity_ChampionsRoom_EventScript_PostBattleSpeech::
 	msgbox EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	closemessage
 	playse SE_DOOR
@@ -155,10 +134,6 @@ EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF::
 	applymovement LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_Movement_WallaceExit
 	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExit
 	waitmovement 0
-	goto EverGrandeCity_ChampionsRoom_EventScriptWarpToHallOfFame
-	end
-
-EverGrandeCity_ChampionsRoom_EventScriptWarpToHallOfFame::
 	setflag FLAG_HIDE_PETALBURG_GYM_GREETER
 	warp MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16
 	waitstate
