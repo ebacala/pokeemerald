@@ -2,6 +2,7 @@
 .set LOCALID_MOM, 4
 .set LOCALID_RIVAL, 7
 .set LOCALID_BIRCH, 8
+.set LOCALID_STARTERS_DEN_MANIAC, 9
 
 LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
@@ -76,17 +77,17 @@ LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::
 	return
 
 LittlerootTown_EventScript_MoveMomToMaysDoor::
-	setobjectxyperm LOCALID_MOM, 14, 8
+	setobjectxyperm LOCALID_MOM, 34, 8
 	return
 
 LittlerootTown_EventScript_SetTwinPos::
 	goto_if_eq VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
-	setobjectxyperm LOCALID_TWIN, 10, 1
+	setobjectxyperm LOCALID_TWIN, 30, 1
 	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_UP
 	return
 
 LittlerootTown_EventScript_SetTwinGuardingRoutePos::
-	setobjectxyperm LOCALID_TWIN, 7, 2
+	setobjectxyperm LOCALID_TWIN, 27, 2
 	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_DOWN
 	return
 
@@ -99,11 +100,11 @@ LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos::
 	return
 
 LittlerootTown_EventScript_SetMomInFrontOfDoorMale::
-	setobjectxyperm LOCALID_MOM, 5, 9
+	setobjectxyperm LOCALID_MOM, 25, 9
 	return
 
 LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
-	setobjectxyperm LOCALID_MOM, 14, 9
+	setobjectxyperm LOCALID_MOM, 34, 9
 	return
 
 LittlerootTown_OnFrame:
@@ -1051,3 +1052,42 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittleRootTown_StartersDen_Talk_To_ManiacScript::
+	faceplayer
+	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_0
+	goto_if_set FLAG_IS_CHAMPION, LittleRootTown_StartersDen_Talk_To_ManiacScript_1
+	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_2
+	applymovement LOCALID_STARTERS_DEN_MANIAC, Maniac_Face_Down
+	waitmovement 0
+	release
+	return
+
+LittleRootTown_StartersDen_Talk_To_ManiacScript_1:
+	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_1
+	applymovement LOCALID_STARTERS_DEN_MANIAC, Maniac_Move_Out_Of_The_Way
+	waitmovement 0
+	release
+	return
+
+
+Maniac_Face_Down:
+	face_down
+	step_end
+
+Maniac_Move_Out_Of_The_Way:
+	walk_down
+	walk_down
+	face_up
+	step_end
+
+LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_0:
+	.string "Hi! I discovered a small grove with cool\n"
+	.string "POKéMON inside!$"
+
+LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_1:
+	.string "I finally managed to clear it out. Check\n"
+	.string "this out!$"
+
+LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_2:
+	.string "Unfortunately I haven't managed to\n"
+	.string "clear it out yet. Come back later.$"
