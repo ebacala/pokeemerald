@@ -52,6 +52,7 @@ It will then create a container from that image and mount the pokeemerald folder
         - Meteor Falls (1st basement floor, 2nd room, land): 8% chance (lv. 35-39) | Decreased GOLBAT chance from 50% to 42%
         - Meteor Falls (1st basement floor, 2nd room, water): 4% chance (lv. 5-35) | Decreased SOLROCK chance from 10% to 6%
 * Added some decor to Littleroot Town
+* Pressing the A, L or START button will skip the copyright intro scene
 
 
 ## Original project README
