@@ -45,6 +45,7 @@ LittlerootTown_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
+	call_if_unset FLAG_LITTLEROOT_TOWN_BLOCKED_STARTERS_DEN, LittlerootTown_EventScript_Move_Maniac_Out_Of_The_Way
 	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
 	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
@@ -1052,18 +1053,32 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittlerootTown_EventScript_Move_Maniac_Out_Of_The_Way::
+	setobjectxyperm LOCALID_STARTERS_DEN_MANIAC, 7, 19
+	setobjectmovementtype LOCALID_STARTERS_DEN_MANIAC, MOVEMENT_TYPE_FACE_UP
+	return
+
 LittleRootTown_StartersDen_Talk_To_ManiacScript::
+	goto_if_set FLAG_LITTLEROOT_TOWN_BLOCKED_STARTERS_DEN, LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_To_Allow_Access
 	faceplayer
-	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_0
-	goto_if_set FLAG_IS_CHAMPION, LittleRootTown_StartersDen_Talk_To_ManiacScript_1
-	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_2
+	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_Allow_Access
+	waitmovement 0
+	release
+	return
+
+LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_To_Allow_Access::
+	faceplayer
+	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_Intro
+	goto_if_set FLAG_IS_CHAMPION, LittleRootTown_StartersDen_Talk_To_ManiacScript_2
+	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_Still_Blocked
 	applymovement LOCALID_STARTERS_DEN_MANIAC, Maniac_Face_Down
 	waitmovement 0
 	release
 	return
 
-LittleRootTown_StartersDen_Talk_To_ManiacScript_1:
-	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_1
+LittleRootTown_StartersDen_Talk_To_ManiacScript_2:
+	msgbox LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_Allow_Access
+	clearflag FLAG_LITTLEROOT_TOWN_BLOCKED_STARTERS_DEN
 	applymovement LOCALID_STARTERS_DEN_MANIAC, Maniac_Move_Out_Of_The_Way
 	waitmovement 0
 	release
@@ -1080,14 +1095,14 @@ Maniac_Move_Out_Of_The_Way:
 	face_up
 	step_end
 
-LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_0:
+LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_Intro:
 	.string "Hi! I discovered a small grove with cool\n"
 	.string "POKéMON inside!$"
 
-LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_1:
+LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_Allow_Access:
 	.string "I finally managed to clear it out. Check\n"
 	.string "this out!$"
 
-LittleRootTown_StartersDen_Talk_To_ManiacScript_Text_2:
+LittleRootTown_StartersDen_Talk_To_ManiacScript_Dialog_Still_Blocked:
 	.string "Unfortunately I haven't managed to\n"
 	.string "clear it out yet. Come back later.$"
