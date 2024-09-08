@@ -212,9 +212,6 @@ EventScript_UseDive::
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
 	setfieldeffectargument 1, 1
-	msgbox Text_WantToDive, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_EndDive
-	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
 	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndDive
 	end
@@ -235,9 +232,6 @@ EventScript_UseDiveUnderwater::
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
 	setfieldeffectargument 1, 1
-	msgbox Text_WantToSurface, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_EndSurface
-	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
 	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndSurface
 	end
@@ -256,20 +250,9 @@ Text_CantDive:
 	.string "The sea is deep here. A POKéMON\n"
 	.string "may be able to go underwater.$"
 
-Text_WantToDive:
-	.string "The sea is deep here.\n"
-	.string "Would you like to use DIVE?$"
-
-Text_MonUsedDive:
-	.string "{STR_VAR_1} used DIVE.$"
-
 Text_CantSurface:
 	.string "Light is filtering down from above.\n"
 	.string "A POKéMON may be able to surface.$"
-
-Text_WantToSurface:
-	.string "Light is filtering down from above.\n"
-	.string "Would you like to use DIVE?$"
 
 EventScript_FailSweetScent::
 	msgbox Text_FailSweetScent, MSGBOX_SIGN
