@@ -218,6 +218,16 @@ Route101_EventScript_RouteSign::
 	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
 	end
 
+Route101_EventScript_ChooseRandomizedStarter::
+	special RandomizeStarters
+	special ChooseStarter
+	waitstate
+	return
+
+Route101_Text_WantRandomizedStarter:
+	.string "Would you like to choose from\n"
+	.string "3 random starter POKéMON?$"
+
 Route101_EventScript_BirchsBag::
 	lock
 	faceplayer
@@ -228,8 +238,26 @@ Route101_EventScript_BirchsBag::
 	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
+	msgbox Route101_Text_WantRandomizedStarter, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route101_EventScript_DoRandomizedStarter
+	goto Route101_EventScript_DoNormalStarter
+	end
+
+Route101_EventScript_DoRandomizedStarter::
+	special RandomizeStarters
 	special ChooseStarter
 	waitstate
+	goto Route101_EventScript_AfterStarterChoice
+	end
+
+Route101_EventScript_DoNormalStarter::
+	special ChooseStarter
+	waitstate
+	goto Route101_EventScript_AfterStarterChoice
+	end
+
+Route101_EventScript_AfterStarterChoice::
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
 	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
