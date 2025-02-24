@@ -21,6 +21,7 @@ It will then create a container from that image and mount the pokeemerald folder
 * Pressing the R button will check if items were picked up using the PICKUP ability
 * Added self trade (in Littleroot Town)
 * Removed the dialog asking to use SURF, CASCADE and DIVE
+* Removed the low HP sound in battle
 
 #### IVs/EVs
 
