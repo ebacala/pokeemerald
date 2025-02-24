@@ -22,6 +22,7 @@ It will then create a container from that image and mount the pokeemerald folder
 * Added self trade (in Littleroot Town)
 * Removed the dialog asking to use SURF, CASCADE and DIVE
 * Removed the low HP sound in battle
+* Sped up the battles pace
 
 #### IVs/EVs
 
