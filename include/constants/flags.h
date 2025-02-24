@@ -1388,7 +1388,7 @@
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
 #define FLAG_LITTLEROOT_TOWN_BLOCKED_STARTERS_DEN   (SYSTEM_FLAGS + 0x21) // Used to block access to LittleRoot Starter's Den
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
+#define FLAG_VISITED_BLIND_MANS_HOME                (SYSTEM_FLAGS + 0x22) // Used to script the Blind Man's Home first visit
 #define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
 #define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
 #define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
