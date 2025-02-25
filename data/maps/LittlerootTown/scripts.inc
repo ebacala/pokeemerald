@@ -249,49 +249,17 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 	end
 
 LittlerootTown_EventScript_FatMan::
-	goto SCRIPT_SelfTrade_V1
+	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
 	end
-
-SCRIPT_SelfTrade_V1::
-	lock
-	faceplayer
-	msgbox SCRIPT_SelfTrade_Text_IllTradeIfYouWant, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq SCRIPT_SelfTrade_DeclineTrade
-	special ChoosePartyMon
-	waitstate
-	compare VAR_0x8004, 255
-	goto_if_eq SCRIPT_SelfTrade_DeclineTrade
-	copyvar VAR_0x8005, VAR_0x8004
-	setvar VAR_0x8004, 6
-	special CreateInGameTradePokemon
-	special DoInGameTradeScene
-	waitstate
-	msgbox SCRIPT_SelfTrade_Text_ComeBack, MSGBOX_DEFAULT
-	release
-	end
-
-SCRIPT_SelfTrade_DeclineTrade::
-	msgbox SCRIPT_SelfTrade_Text_YouDontWantToThatsOkay, MSGBOX_DEFAULT
-	release
-	end
-
-SCRIPT_SelfTrade_Text_IllTradeIfYouWant:
-	.string "Some say that some POKéMONs can\n"
-	.string "evolve when they are traded!\p"
-	.string "If you want I can trade with\n"
-	.string "you to help you?$"
-
-SCRIPT_SelfTrade_Text_ComeBack:
-	.string "Come back anytime.$"
-
-SCRIPT_SelfTrade_Text_YouDontWantToThatsOkay:
-	.string "You dont want to?\n"
-    .string "Okay come back anytime!$"
 
 LittlerootTown_EventScript_Boy::
 	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
 	end
+
+LittlerootTown_Text_CanUsePCToStoreItems:
+	.string "If you use a PC, you can store items\n"
+	.string "and POKéMON.\p"
+	.string "The power of science is staggering!$"
 
 LittlerootTown_EventScript_Twin::
 	lock
