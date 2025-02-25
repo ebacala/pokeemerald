@@ -70,6 +70,19 @@ It will then create a container from that image and mount the pokeemerald folder
         - Meteor Falls (1st basement floor, 2nd room, water): 4% chance (lv. 5-35) | Decreased SOLROCK chance from 10% to 6%
 * Once the first roamer (LATIOS or LATIAS) has been battled/captured then the other one will be available
 * Allow the player to randomize the starters
+* Changed trade evolutions to level and item evolutions:
+    - KADABRA -> ALAKAZAM: level 35
+    - MACHOKE -> MACHAMP: level 40
+    - GRAVELER -> GOLEM: level 37
+    - HAUNTER -> GENGAR: level 35
+    - SLOWPOKE -> SLOWKING: WATER STONE
+    - ONIX -> STEELIX: level 30
+    - SEADRA -> KINGDRA: WATER STONE
+    - SCYTHER -> SCIZOR: level 30
+    - PORYGON -> PORYGON2: level 30
+    - POLIWHIRL -> POLITOED: level 35
+    - CLAMPERL -> HUNTAIL: level 30
+    - CLAMPERL -> GOREBYSS: WATER STONE
 
 ### Others
 
