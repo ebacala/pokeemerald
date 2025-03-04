@@ -25,7 +25,7 @@ script EventScript_ItemPickUp {
             }
         } else {
             if (var(VAR_0x8005) == 0) {
-                msgbox(format("No item were picked up."))
+                break
             } else {
                 msgbox(format("No more items were picked up."))
             }

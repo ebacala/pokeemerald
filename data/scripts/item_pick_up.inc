@@ -13,8 +13,7 @@ EventScript_ItemPickUp_2:
 	compare VAR_0x8005, 0
 	goto_if_eq EventScript_ItemPickUp_11
 # 30 "data/scripts/item_pick_up.pory"
-	msgbox EventScript_ItemPickUp_Text_3
-EventScript_ItemPickUp_10:
+	msgbox EventScript_ItemPickUp_Text_2
 EventScript_ItemPickUp_1:
 # 36 "data/scripts/item_pick_up.pory"
 	release
@@ -43,9 +42,7 @@ EventScript_ItemPickUp_7:
 	goto EventScript_ItemPickUp_1
 
 EventScript_ItemPickUp_11:
-# 28 "data/scripts/item_pick_up.pory"
-	msgbox EventScript_ItemPickUp_Text_2
-	goto EventScript_ItemPickUp_10
+	goto EventScript_ItemPickUp_1
 
 EventScript_ItemPickUp_14:
 # 17 "data/scripts/item_pick_up.pory"
@@ -68,9 +65,5 @@ EventScript_ItemPickUp_Text_1:
 	.string "left in the BAG.$"
 
 EventScript_ItemPickUp_Text_2:
-# 28 "data/scripts/item_pick_up.pory"
-	.string "No item were picked up.$"
-
-EventScript_ItemPickUp_Text_3:
 # 30 "data/scripts/item_pick_up.pory"
 	.string "No more items were picked up.$"

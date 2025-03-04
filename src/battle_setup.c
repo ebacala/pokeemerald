@@ -610,6 +610,7 @@ static void CB2_EndWildBattle(void)
     else
     {
         SetMainCallback2(CB2_ReturnToField);
+        ScriptContext_SetupScript(EventScript_ItemPickUp);
         gFieldCallback = FieldCB_ReturnToFieldNoScriptCheckMusic;
     }
 }
@@ -628,6 +629,7 @@ static void CB2_EndScriptedWildBattle(void)
     }
     else
     {
+        ScriptContext_SetupScript(EventScript_ItemPickUp);
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
 }
@@ -1338,6 +1340,7 @@ static void CB2_EndTrainerBattle(void)
     }
     else
     {
+        ScriptContext_SetupScript(EventScript_ItemPickUp);
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         if (!InBattlePyramid() && !InTrainerHillChallenge())
         {
@@ -1359,6 +1362,7 @@ static void CB2_EndRematchBattle(void)
     }
     else
     {
+        ScriptContext_SetupScript(EventScript_ItemPickUp);
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         RegisterTrainerInMatchCall();
         SetBattledTrainersFlags();
