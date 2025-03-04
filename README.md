@@ -88,6 +88,7 @@ It will then create a container from that image and mount the pokeemerald folder
 
 * French translation for pokemons, moves, abilities, natures and cities/routes
 * Pressing the A, L or START button will skip the copyright intro scene
+* Increased text speed 
 
 ## Original project README
 
