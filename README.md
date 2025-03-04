@@ -84,6 +84,7 @@ It will then create a container from that image and mount the pokeemerald folder
     - POLIWHIRL -> POLITOED: level 35
     - CLAMPERL -> HUNTAIL: level 30
     - CLAMPERL -> GOREBYSS: WATER STONE
+* 5% chance of encountering a FREEBAS on any tile of ROUTE 119
 
 ### Others
 
