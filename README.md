@@ -13,6 +13,7 @@ It will then create a container from that image and mount the pokeemerald folder
 
 * Added a zone on the left side of Littleroot Town where the player can find the 3 Hoenn starters (only accessible after defeating the POKéMON LEAGUE)
 * Added some decor to Littleroot Town
+* Surfing dismount on ground fix effect
 
 ### Gameplay
 
