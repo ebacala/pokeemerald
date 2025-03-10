@@ -1410,34 +1410,48 @@ u8 Special_GetLeadMonMaxedOutEvs(void)
     return maxedOutEvs;
 }
 
+u8 Special_ResetLeadMonEvs(void)
+{
+    u8 zero = 0;
+    int i;
+    struct Pokemon *mon = &gPlayerParty[GetLeadMonIndex()];
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        SetMonData(mon, MON_DATA_HP_EV + i, &zero);
+    }
+    CalculateMonStats(mon);
+    return 0;
+}
+
 u8 Special_GetLeadMonHpEv(void)
 {
-    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_HP_EV, 0);;
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_HP_EV, 0);
 }
 
 u8 Special_GetLeadMonAtkEv(void)
 {
-    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_ATK_EV, 0);;
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_ATK_EV, 0);
 }
 
 u8 Special_GetLeadMonDefEv(void)
 {
-    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_DEF_EV, 0);;
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_DEF_EV, 0);
 }
 
 u8 Special_GetLeadMonSpAtkEv(void)
 {
-    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPATK_EV, 0);;
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPATK_EV, 0);
 }
 
 u8 Special_GetLeadMonSpDefEv(void)
 {
-    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPDEF_EV, 0);;
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPDEF_EV, 0);
 }
 
 u8 Special_GetLeadMonSpeedEv(void)
 {
-    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPEED_EV, 0);;
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_SPEED_EV, 0);
 }
 
 u8 Special_CheckPickedUpItems(void)

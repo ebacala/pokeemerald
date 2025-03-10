@@ -313,6 +313,7 @@ gSpecials::
 	def_special Special_GetLeadMonSpAtkEv
 	def_special Special_GetLeadMonSpDefEv
 	def_special Special_GetLeadMonSpeedEv
+	def_special Special_ResetLeadMonEvs
 	def_special Script_FacePlayer
 	def_special Script_ClearHeldMovement
 	def_special InitRoamer
