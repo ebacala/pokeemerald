@@ -20,7 +20,7 @@ It will then create a container from that image and mount the pokeemerald folder
 * Removed save overwrite confirmation for the same save file
 * Level 100 POKéMONS that fought are no longer taken into account for EXP. calculations
 * At the end of a battle if a POKéMON has the PICK UP ability and it has picked up an item, a message will appear
-* Removed the dialog asking to use SURF, CASCADE and DIVE
+* Removed the dialog asking to use CUT, ROCK SMASH, STRENGTH, SURF, CASCADE and DIVE
 * Removed the low HP sound in battle
 * Sped up the battles pace
 * Don't reset pushable boulders when moving around the map
