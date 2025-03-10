@@ -25,6 +25,7 @@ It will then create a container from that image and mount the pokeemerald folder
 * Don't reset pushable boulders when moving around the map
 * No more need of the fishing rhythm game
 * Allow running indoors
+* Not showing dex entries until getting the POKéDEX
 
 #### IVs/EVs
 
