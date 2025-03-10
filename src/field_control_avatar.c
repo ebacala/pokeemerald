@@ -36,6 +36,7 @@
 #include "constants/trainer_hill.h"
 #include "event_scripts.h"
 #include "script.h"
+#include "player_battle.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -124,8 +125,9 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->checkStandardWildEncounter = TRUE;
     }
 
-    if ((newKeys & R_BUTTON) && !ArePlayerFieldControlsLocked()) 
+    if (gHasPlayerGottenOutOfBattle == 1 && !ArePlayerFieldControlsLocked())
     {
+        gHasPlayerGottenOutOfBattle = 0;
         ScriptContext_SetupScript(EventScript_ItemPickUp);            
     }
 

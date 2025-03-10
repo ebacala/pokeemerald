@@ -46,6 +46,7 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "player_battle.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -609,8 +610,8 @@ static void CB2_EndWildBattle(void)
     }
     else
     {
+        gHasPlayerGottenOutOfBattle = 1;
         SetMainCallback2(CB2_ReturnToField);
-        ScriptContext_SetupScript(EventScript_ItemPickUp);
         gFieldCallback = FieldCB_ReturnToFieldNoScriptCheckMusic;
     }
 }
@@ -629,7 +630,7 @@ static void CB2_EndScriptedWildBattle(void)
     }
     else
     {
-        ScriptContext_SetupScript(EventScript_ItemPickUp);
+        gHasPlayerGottenOutOfBattle = 1;
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
 }
@@ -1340,7 +1341,7 @@ static void CB2_EndTrainerBattle(void)
     }
     else
     {
-        ScriptContext_SetupScript(EventScript_ItemPickUp);
+        gHasPlayerGottenOutOfBattle = 1;
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         if (!InBattlePyramid() && !InTrainerHillChallenge())
         {
@@ -1362,7 +1363,7 @@ static void CB2_EndRematchBattle(void)
     }
     else
     {
-        ScriptContext_SetupScript(EventScript_ItemPickUp);
+        gHasPlayerGottenOutOfBattle = 1;
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         RegisterTrainerInMatchCall();
         SetBattledTrainersFlags();

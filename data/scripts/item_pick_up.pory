@@ -12,27 +12,17 @@ script EventScript_ItemPickUp {
 
             checkitemspace(VAR_0x8004, 1)
             if (var(VAR_RESULT)) {
-                msgbox(format("One of your POKéMON picked up {STR_VAR_1}. Do you want to put it in the BAG?"), MSGBOX_YESNO)
-                if (var(VAR_RESULT)) {
-                    giveitem(VAR_0x8004)
-                    special(Special_RemoveFirstPokemonPickedUpItem)
-                } else {
-                    break
-                }
+                msgbox(format("One of your POKéMON picked up {STR_VAR_1}."))
+                giveitem(VAR_0x8004)
+                special(Special_RemoveFirstPokemonPickedUpItem)
             } else {
                 msgbox(format("One of your POKéMON picked up {STR_VAR_1}. But there is no space left in the BAG."))
                 break
             }
-        } else {
-            if (var(VAR_0x8005) == 0) {
-                break
-            } else {
-                msgbox(format("No more items were picked up."))
-            }
-            break
         }
-    }  
+
+        break
+    }
 
     release
-    end
 }
