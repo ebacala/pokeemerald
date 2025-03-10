@@ -34,6 +34,7 @@ It will then create a container from that image and mount the pokeemerald folder
 * Added a new dialog line to the Battle Frontier breeder for POKéMONS with perfect IVs
 * The Slateport effort ribbon lady now tells the IVs of the first POKéMON in the team
 * Increased MACHO BRACE EV multiplier from 2 to 4
+* Vitamins (PROTEIN, ZINC, etc.) no longer have a cap of 100 raisable EV points
 
 ### Items
 
