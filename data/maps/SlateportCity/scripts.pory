@@ -1338,49 +1338,29 @@ script SlateportCity_EventScript_EffortRibbonWoman {
 	faceplayer
 
 	bufferleadmonspeciesname(STR_VAR_1)
-	msgbox(format("Oh? Your {STR_VAR_1}…"))
+	msgbox(format("I have a special ability that allows me to tell the potential of POKéMONs"))
+	msgbox(format("Hum? Your {STR_VAR_1}…\nHere's what I can tell you…"))
 
 	specialvar(VAR_RESULT, Special_GetLeadMonHpEv)
-	buffernumberstring(STR_VAR_2, VAR_RESULT)
-	if (var(VAR_RESULT) >= 1) {
-		msgbox(format("I see your POKéMON has started to tap into its endurance potential!"))
-	}
-
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
 	specialvar(VAR_RESULT, Special_GetLeadMonAtkEv)
 	buffernumberstring(STR_VAR_2, VAR_RESULT)
-	if (var(VAR_RESULT) >= 1) {
-		msgbox(format("Hmm, it seems like your POKéMON has started to unveil its strength potential!"))
-	}
+
+	msgbox(format("HP: {STR_VAR_1}/255\nATK: {STR_VAR_2}/255"))
 
 	specialvar(VAR_RESULT, Special_GetLeadMonDefEv)
-	buffernumberstring(STR_VAR_2, VAR_RESULT)
-	if (var(VAR_RESULT) >= 1) {
-		msgbox(format("It seems your POKéMON is starting to tap into its defensive capabilities!"))
-	}
-
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
 	specialvar(VAR_RESULT, Special_GetLeadMonSpAtkEv)
 	buffernumberstring(STR_VAR_2, VAR_RESULT)
-	if (var(VAR_RESULT) >= 1) {
-		msgbox(format("It appears your POKéMON is beginning to unlock its mystical strength!"))
-	}
+
+	msgbox(format("DEF: {STR_VAR_1}/255\nSP. ATK: {STR_VAR_2}/255"))
 
 	specialvar(VAR_RESULT, Special_GetLeadMonSpDefEv)
-	buffernumberstring(STR_VAR_2, VAR_RESULT)
-	if (var(VAR_RESULT) >= 1) {
-		msgbox(format("It appears your POKéMON is beginning to harness its mystical defense capabilities!"))
-	}
-
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
 	specialvar(VAR_RESULT, Special_GetLeadMonSpeedEv)
 	buffernumberstring(STR_VAR_2, VAR_RESULT)
-	if (var(VAR_RESULT) >= 1) {
-		msgbox(format("I see your POKéMON has started to tap into its speed potential!"))
-	}
-
-	specialvar(VAR_RESULT, Special_GetLeadMonMaxedOutEvs)
-	buffernumberstring(STR_VAR_2, VAR_RESULT)
-	if (var(VAR_RESULT) >= 1) {
-		msgbox(format("Impressive! {STR_VAR_2} of your POKéMON's stats have reached their peak potential!"))
-	}
+	
+	msgbox(format("SP. DEF: {STR_VAR_1}/255\nSPEED: {STR_VAR_2}/255"))
 
 	specialvar(VAR_RESULT, LeadMonHasEffortRibbon)
 	if (var(VAR_RESULT)) {
