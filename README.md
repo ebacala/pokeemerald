@@ -24,6 +24,7 @@ It will then create a container from that image and mount the pokeemerald folder
 * Sped up the battles pace
 * Don't reset pushable boulders when moving around the map
 * No more need of the fishing rhythm game
+* Allow running indoors
 
 #### IVs/EVs
 
